@@ -28,7 +28,8 @@
             loginHint: "@User.Claims.FirstOrDefault(c => c.Type == "preferred_username")?.Value",
             redirectUri: "/blank-auth-end.html",
             loginType: mgt.LoginType.Popup,
-            authority: "@Configuration["TeamsFx:Authentication:OAuthAuthority"]"
+            authority: "@Configuration["TeamsFx:Authentication:OAuthAuthority"]",
+            scopes: ["User.Read", "User.ReadBasic.All", "Calendars.Read", "Files.Read", "Files.Read.All", "Sites.Read.All", "Tasks.Read", "Tasks.ReadWrite", "People.Read"]
         });
     </script>
     <component type="typeof(App)" render-mode="ServerPrerendered" />
