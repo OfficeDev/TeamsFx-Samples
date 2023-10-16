@@ -1,0 +1,68 @@
+[
+  {
+    "name": "officedev-teams-toolkit-samples-stock-price-update-bot",
+    "source": "officeDev",
+    "title": "Stocks update notification bot",
+    "shortDescription": "request data on a pretermined schedule from a public API using API Key authentication and render that data using an Adaptive Card in Microsoft Teams contexts.",
+    "url": "https://github.com/OfficeDev/TeamsFx-Samples/tree/dev/stocks-update-notification-bot",
+    "longDescription": [
+      "The Stocks Update Notification bot shows you how to request data on a pretermined schedule from a public API using API Key authentication and render that data using an Adaptive Card in different Microsoft Teams contexts."
+    ],
+    "creationDateTime": "2022-09-23",
+    "updateDateTime": "2022-10-25",
+    "products": [
+      "Teams"
+    ],
+    "metadata": [
+      {
+        "key": "TEAMS-SAMPLE-SOURCE",
+        "value": "OfficeDev"
+      },
+      {
+        "key": "TEAMS-SERVER-LANGUAGE",
+        "value": "typescript"
+      },
+      {
+        "key": "TEAMS-SERVER-PLATFORM",
+        "value": "nodejs"
+      },
+      {
+        "key": "TEAMS-FEATURES",
+        "value": "bot"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/OfficeDev/TeamsFx-Samples/dev/stocks-update-notification-bot/images/app.gif",
+        "alt": "Solution UX showing the notification cards sent from stock bot"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "OfficeDev",
+        "pictureUrl": "https://avatars.githubusercontent.com/u/11563347?v=4",
+        "name": "OfficeDev"
+      }
+    ],
+    "references": [
+      {
+        "name": "Teams developer documentation",
+        "url": "https://aka.ms/TeamsPlatformDocs"
+      },
+      {
+        "name": "Teams developer questions",
+        "url": "https://aka.ms/TeamsPlatformFeedback"
+      },
+      {
+        "name": "Teams development videos from Microsoft",
+        "url": "https://aka.ms/sample-ref-teams-vids-from-microsoft"
+      },
+      {
+        "name": "Teams development videos from the community",
+        "url": "https://aka.ms/sample-ref-teams-vids-from-community"
+      }
+    ]
+  }
+]
