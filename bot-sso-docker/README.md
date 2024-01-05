@@ -2,7 +2,7 @@
 
 A bot, chatbot, or conversational bot is an app that responds to simple commands sent in chat and replies in meaningful ways. Examples of bots in everyday use include: bots that notify about build failures, bots that provide information about the weather or bus schedules, or provide travel information. A bot interaction can be a quick question and answer, or it can be a complex conversation. Being a cloud application, a bot can provide valuable and secure access to cloud services and corporate resources.
 
-This is a sample chatbot application demonstrating Single Sign-on using `botbuilder` and Teams Framework that can respond to a `show` message.
+This is a sample chatbot application running in Docker container. It demonstrates Single Sign-on using `botbuilder` and Teams Framework that can respond to a `show` message.
 
 ![Bot SSO Overview](images/sso-bot.gif)
 
@@ -10,11 +10,13 @@ This is a sample chatbot application demonstrating Single Sign-on using `botbuil
 - Use Teams Toolkit to create a Teams bot app.
 - Use Microsoft Graph to get User info and picture in Teams app.
 - Use TeamsFx SDK to implementing SSO for Teams bot.
+- Use Docker to containerize a Teams bot.
 
 ## Prerequisite to use this sample
-- [Node.js](https://nodejs.org/), supported versions: 16, 18
+- [Docker Engine](https://docs.docker.com/engine/install/)
 - A Microsoft 365 tenant in which you have permission to upload Teams apps. You can get a free Microsoft 365 developer tenant by joining the [Microsoft 365 developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program).
 - [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
+- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) for Azure Container Apps deployment
 
 ## Minimal path to awesome
 
@@ -30,18 +32,21 @@ This is a sample chatbot application demonstrating Single Sign-on using `botbuil
       BOT_DOMAIN=sample-id-3978.devtunnels.ms
       BOT_ENDPOINT=https://sample-id-3978.devtunnels.ms
       ```
-    1. Run command: `teamsfx provision --env local` .
-    1. Run command: `teamsfx deploy --env local` .
-    1. Run command: `teamsfx preview --env local` .
+    1. Run command: `teamsfx provision --env local`.
+    1. Run command: `docker build -t sso-bot .`.
+    1. Run command: `docker run -p 3978:80 --env-file .localConfig sso-bot`.
+    1. Run command: `teamsfx preview --open-only`.
 
 ### Deploy the app to Azure
 - From VS Code:
     1. Sign into Azure by clicking the `Sign in to Azure` under the `ACCOUNTS` section from sidebar.
     1. Click `Provision` from `LIFECYCLE` section or open the command palette and select: `Teams: Provision`.
+    1. Run command: `az login`.
     1. Click `Deploy` or open the command palette and select: `Teams: Deploy`.
 - From TeamsFx CLI:
     1. Run command: `teamsfx account login azure`.
     1. Run command: `teamsfx provision --env dev`.
+    1. Run command: `az login`.
     1. Run command: `teamsfx deploy --env dev`.
 
 ### Preview the app in Teams
