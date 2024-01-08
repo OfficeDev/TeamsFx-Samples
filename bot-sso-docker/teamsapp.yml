@@ -85,6 +85,11 @@ deploy:
   - uses: script
     name: set environment variables
     with:
+      run: echo "::set-teamsfx-env CONTAINER_IMAGE=sso-bot:latest"
+
+  - uses: script
+    name: set environment variables
+    with:
       run: echo "::set-teamsfx-env AZURE_CONTAINER_IMAGE=${{AZURE_CONTAINER_APP_NAME}}.azurecr.io/${{CONTAINER_IMAGE}}"
 
   - uses: script
