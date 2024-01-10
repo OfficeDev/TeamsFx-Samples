@@ -53,7 +53,7 @@ This sample demonstrate how to containerize a Teams App and integrate the Docker
       ```
   1.  Run command: `teamsfx provision --env local`.
   1.  Run command: `docker build -t sso-bot .`.
-  1.  Run command: `docker run -p 3978:80 --env-file .localConfig sso-bot`.
+  1.  Run command: `docker run -p 3978:80 --env-file .localConfigs sso-bot`.
   1.  Run command: `teamsfx preview --open-only`.
 
 ### Deploy the app to Azure
