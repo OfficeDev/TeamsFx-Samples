@@ -4,7 +4,7 @@ A bot, chatbot, or conversational bot is an app that responds to simple commands
 
 This is a sample chatbot application running in Docker container. It demonstrates Single Sign-on using `botbuilder` and Teams Framework that can respond to a `show` message.
 
-![Bot SSO Overview](images/sso-bot.gif)
+![Bot SSO Overview](assets/sampleDemo.gif)
 
 ## This sample illustrates
 
