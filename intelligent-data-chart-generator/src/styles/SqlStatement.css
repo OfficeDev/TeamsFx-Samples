@@ -1,0 +1,18 @@
+.sql-container {
+  display: inline-block;
+  position: relative;
+  height: 80px;
+}
+
+.sql-container #copy {
+  position: absolute;
+  top: 0.75rem;
+  right: 10px;
+}
+
+.sql-container pre {
+  margin-left: 2rem;
+  margin-top: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

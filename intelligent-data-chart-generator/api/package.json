@@ -1,0 +1,22 @@
+{
+  "name": "teamsfx-template-api",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:teamsfx": "env-cmd --silent -f .localConfigs npm run dev",
+    "dev": "func start --typescript --language-worker=\"--inspect=9229\" --port \"7071\" --cors \"*\"",
+    "build": "tsc",
+    "watch:teamsfx": "tsc -w",
+    "prestart": "npm run build",
+    "start": "npx func start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@azure/functions": "^3.5.1",
+    "@microsoft/teamsfx": "^2.3.0",
+    "mssql": "^10.0.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "typescript": "^4.9.5"
+  }
+}

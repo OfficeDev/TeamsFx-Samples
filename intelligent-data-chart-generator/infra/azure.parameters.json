@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceBaseName": {
+      "value": "tab${{RESOURCE_SUFFIX}}"
+    },
+    "storageSku": {
+      "value": "Standard_LRS"
+    },
+    "aadAppClientId": {
+      "value": "${{AAD_APP_CLIENT_ID}}"
+    },
+    "aadAppClientSecret": {
+      "value": "${{SECRET_AAD_APP_CLIENT_SECRET}}"
+    },
+    "aadAppTenantId": {
+      "value": "${{AAD_APP_TENANT_ID}}"
+    },
+    "aadAppOauthAuthorityHost": {
+      "value": "${{AAD_APP_OAUTH_AUTHORITY_HOST}}"
+    },
+    "functionAppSKU": {
+      "value": "B1"
+    },
+    "functionStorageSKU": {
+      "value": "Standard_LRS"
+    },
+    "teamsAppId": {
+      "value": "${{TEAMS_APP_ID}}"
+    },
+    "openAIEndpoint": {
+      "value": "${{SECRET_OPENAI_ENDPOINT}}"
+    },
+    "openAIDeploymentName": {
+      "value": "${{SECRET_OPENAI_DEPLOYMENT_NAME}}"
+    },
+    "openAIApiKey": {
+      "value": "${{SECRET_OPENAI_API_KEY}}"
+    },
+    "openAIChatCompletionUrl": {
+      "value": "${{OPENAI_CHAT_COMPLETION_URL}}"
+    },
+    "sqlUser": {
+      "value": "${{SQL_USER}}"
+    },
+    "sqlPassword": {
+      "value": "${{SECRET_SQL_PASSWORD}}"
+    },
+    "sqlServer": {
+      "value": "${{SQL_SERVER}}"
+    },
+    "sqlDatabase": {
+      "value": "${{SQL_DATABASE}}"
+    }
+  }
+}

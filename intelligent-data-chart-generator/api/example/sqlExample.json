@@ -1,0 +1,18 @@
+[
+  {
+    "request": "Show top 20 product sales.",
+    "response": {
+      "sql": "SELECT Top 20 ProductID, sum(LineTotal) as TotalSales FROM [SalesOrderDetail] GROUP BY ProductId ORDER BY TotalSales DESC;",
+      "xKey": "ProductID",
+      "yKey": "SaleCount"
+    }
+  },
+  {
+    "request": "Statistics of the top 10 sales volume of each product in April.",
+    "response": {
+      "sql": "SELECT ProductID, SUM(OrderQty) AS SalesQuantity FROM [SalesOrderDetail] WHERE ModifiedDate BETWEEN '2023-04-01' AND '2023-04-30' GROUP BY ProductID",
+      "xKey": "ProductID",
+      "yKey": "SalesQuantity"
+    }
+  }
+]

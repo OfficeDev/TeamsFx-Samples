@@ -1,0 +1,62 @@
+[
+  {
+    "name": "officedev-teamsfx-samples-tab-intelligent-data-chart-generator",
+    "source": "officeDev",
+    "title": "Intelligent Data Chart Generator",
+    "shortDescription": "Intelligent Microsoft Teams Tab app visualizing data charts based on human-language description. Powered by Azure OpenAI and Azure SQL.",
+    "url": "https://github.com/OfficeDev/TeamsFx-Samples/tree/dev/intelligent-data-chart-generator",
+    "longDescription": [
+      "This intelligent Microsoft Teams Tab app is powered by Azure OpenAI, which helps users generating data charts based on users' description of the data chart in human language. There is an input box where users tell the Tab app what data chart they want to generate, and the app interprets user's requirements then generate visual charts. The data is from Azure SQL. This sample demonstrates how to build a seamless and intuitive experience for accessing and interpreting data."
+    ],
+    "creationDateTime": "2024-01-08",
+    "updateDateTime": "2024-01-08",
+    "products": ["Teams", "TeamsToolkit"],
+    "metadata": [
+      {
+        "key": "TEAMS-SAMPLE-SOURCE",
+        "value": "OfficeDev"
+      },
+      {
+        "key": "TEAMS-SERVER-LANGUAGE",
+        "value": "typescript"
+      },
+      {
+        "key": "TEAMS-FEATURES",
+        "value": "tab"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/OfficeDev/TeamsFx-Samples/dev/intelligent-data-chart-generator/assets/thumbnail.png",
+        "alt": "Intelligent Data Chart Generator"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "huimiu",
+        "pictureUrl": "https://avatars.githubusercontent.com/u/107838226?v=4",
+        "name": "Hui Miao"
+      }
+    ],
+    "references": [
+      {
+        "name": "Teams developer documentation",
+        "url": "https://aka.ms/TeamsPlatformDocs"
+      },
+      {
+        "name": "Teams developer questions",
+        "url": "https://aka.ms/TeamsPlatformFeedback"
+      },
+      {
+        "name": "Teams development videos from Microsoft",
+        "url": "https://aka.ms/sample-ref-teams-vids-from-microsoft"
+      },
+      {
+        "name": "Teams development videos from the community",
+        "url": "https://aka.ms/sample-ref-teams-vids-from-community"
+      }
+    ]
+  }
+]

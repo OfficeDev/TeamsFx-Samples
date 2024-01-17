@@ -1,0 +1,13 @@
+.none-data-state {
+  display: flex;
+  row-gap: var(--spacingVerticalL);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.none-data-state #none-data-text {
+  font-size: var(--fontSizeBase100);
+  line-height: var(--lineHeightBase100);
+  font-weight: var(--fontWeightSemibold);
+}
