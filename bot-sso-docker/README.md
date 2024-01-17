@@ -1,3 +1,16 @@
+---
+page_type: sample
+languages:
+  - typescript
+products:
+  - office-teams
+name: Containerized Bot App with SSO Enabled
+urlFragment: officedev-teamsfx-samples-bot-sso-docker
+description: A containerized Microsoft Teams Bot app with SSO
+extensions:
+  createdDate: "2024-01-17"
+---
+
 # Getting Started with Bot SSO in Docker
 
 A bot, chatbot, or conversational bot is an app that responds to simple commands sent in chat and replies in meaningful ways. Examples of bots in everyday use include: bots that notify about build failures, bots that provide information about the weather or bus schedules, or provide travel information. A bot interaction can be a quick question and answer, or it can be a complex conversation. Being a cloud application, a bot can provide valuable and secure access to cloud services and corporate resources.
@@ -85,9 +98,7 @@ This sample demonstrate how to containerize a Teams App and integrate the Docker
 
 | Date         | Author     | Comments                               |
 | ------------ | ---------- | -------------------------------------- |
-| Apr 19, 2022 | IvanJobs   | update to support Teams Toolkit v4.0.0 |
-| Dec 7, 2022  | yukun-dong | update to support Teams Toolkit v5.0.0 |
-| Jan 5, 2024  | hund030    | update to support Docker               |
+| Jan 17, 2024  | hund030    | Onboard sample in Teams Toolkit V5.0.0 |
 
 ## Feedback
 
