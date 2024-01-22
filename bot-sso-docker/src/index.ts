@@ -86,6 +86,6 @@ server.get(
 server.get(
   "/auth-:name(start|end).html",
   restify.plugins.serveStatic({
-    directory: path.join(__dirname, "public"),
+    directory: path.join(__dirname, "../public"),
   })
 );
