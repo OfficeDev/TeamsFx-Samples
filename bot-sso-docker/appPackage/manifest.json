@@ -15,12 +15,12 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "sso-bot${{APP_NAME_SUFFIX}}",
-        "full": "full name for sso-bot"
+        "short": "SSO Bot ${{APP_NAME_SUFFIX}}",
+        "full": "full name for SSO Bot"
     },
     "description": {
-        "short": "short description for sso-bot",
-        "full": "full description for sso-bot"
+        "short": "short description for SSO Bot",
+        "full": "full description for SSO Bot"
     },
     "accentColor": "#FFFFFF",
     "bots": [

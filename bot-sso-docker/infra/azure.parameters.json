@@ -12,7 +12,7 @@
       "value": "${{SECRET_BOT_PASSWORD}}"
     },
     "botDisplayName": {
-      "value": "sso-bot"
+      "value": "SSO Bot"
     },
     "aadAppClientId": {
       "value": "${{AAD_APP_CLIENT_ID}}"
