@@ -19,4 +19,4 @@ FROM base as production
 ENV NODE_ENV=production
 COPY --from=build /usr/src/app/lib ./lib
 COPY --from=build /usr/src/node_modules ./node_modules
-CMD ["node", "lib/index.js"]
+CMD ["npm", "start"]
