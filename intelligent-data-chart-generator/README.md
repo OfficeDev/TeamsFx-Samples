@@ -60,7 +60,7 @@ This intelligent Microsoft Teams Tab app is powered by Azure OpenAI, which helps
    SQL_DATABASE=<your-sql-database-name>
    ```
 
-   > If you have not created an Azure SQL Database resource, please follow [this tutorial](https://learn.microsoft.com/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal) to create one. Once you've set up the Azure database, you can use [/data/script.sql](/data/script.sql) file to create the table and insert some sample data.
+   > If you have not created an Azure SQL Database resource, please follow [this tutorial](https://learn.microsoft.com/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal) to create one. Once you've set up the Azure database, you can use `/data/script.sql` file to create the table and insert some sample data.
 
 5. Press `F5` to start the app locally.
 
