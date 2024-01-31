@@ -713,6 +713,27 @@
                 "ref": "main",
                 "dir": "samples/msgext-link-unfurling-reddit/nodejs"
             }
+        },
+        {
+            "id": "intelligent-data-chart-generator",
+            "shortId": "data-chart-generator",
+            "onboardDate": "2024-01-31",
+            "title": "Intelligent Data Chart Generator",
+            "shortDescription": "The Microsoft Teams Tab app, powered by Azure OpenAI, interprets user inputs to generate data charts from Azure SQL.",
+            "fullDescription": "This intelligent Microsoft Teams Tab app is powered by Azure OpenAI, which helps users generating data charts based on users' description of the data chart in human language. There is an input box where users tell the Tab app what data chart they want to generate, and the app interprets user's requirements then generate visual charts. The data is from Azure SQL. This sample demonstrates how to build a seamless and intuitive experience for accessing and interpreting data.",
+            "types": [
+              "Tab"
+            ],
+            "tags": [
+              "Tab",
+              "TS",
+              "Azure Functions"
+            ],
+            "time": "30 mins to run",
+            "configuration": "Manual configurations required",
+            "thumbnailPath": "assets/thumbnail.png",
+            "gifPath": "assets/sampleDemo.gif",
+            "suggested": false
         }
     ]
 }
