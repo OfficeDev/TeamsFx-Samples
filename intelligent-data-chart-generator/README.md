@@ -30,7 +30,7 @@ This intelligent Microsoft Teams Tab app is powered by Azure OpenAI, which helps
 
 - [Node.js](https://nodejs.org/), supported versions: 16, 18
 - A Microsoft 365 tenant in which you have permission to upload Teams apps. You can get a free Microsoft 365 developer tenant by joining the [M365 developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
-- An Azure OpenAI(https://aka.ms/azureopenai) resource and an Azure SQL Database(https://aka.ms/azuredb) resource.
+- An [Azure OpenAI](https://aka.ms/azureopenai) resource and an [Azure SQL Database](https://aka.ms/azuredb) resource.
 - [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher or [TeamsFx CLI](https://aka.ms/teamsfx-cli)
 
 ## Minimal path to awesome
