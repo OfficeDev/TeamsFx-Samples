@@ -57,30 +57,30 @@ This sample demonstrate how to containerize a Teams App and integrate the Docker
   1. hit `F5` to start debugging. Alternatively open the `Run and Debug Activity` Panel and select `Debug (Edge)` or `Debug (Chrome)`.
 - From TeamsFx CLI:
   1.  Install [dev tunnel cli](https://aka.ms/teamsfx-install-dev-tunnel).
-  1.  Login with your M365 Account using the command `devtunnel user login`.
-  1.  Start your local tunnel service by running the command `devtunnel host -p 3978 --protocol http --allow-anonymous`.
+  1.  Login with your M365 Account using the command `devtunnel user login` .
+  1.  Start your local tunnel service by running the command `devtunnel host -p 3978 --protocol http --allow-anonymous` .
   1.  In the `env/.env.local` file, fill in the values for `BOT_DOMAIN` and `BOT_ENDPOINT` with your dev tunnel URL.
       ```
       BOT_DOMAIN=sample-id-3978.devtunnels.ms
       BOT_ENDPOINT=https://sample-id-3978.devtunnels.ms
       ```
-  1.  Run command: `teamsfx provision --env local`.
-  1.  Run command: `docker build -t sso-bot .`.
-  1.  Run command: `docker run -p 3978:80 --env-file .localConfigs sso-bot`.
-  1.  Run command: `teamsfx preview --open-only`.
+  1.  Run command: `teamsfx provision --env local` .
+  1.  Run command: `docker build -t sso-bot ./` .
+  1.  Run command: `docker run -p 3978:80 --env-file .localConfigs sso-bot` .
+  1.  Run command: `teamsfx preview --open-only` .
 
 ### Deploy the app to Azure
 
 - From VS Code:
   1. Sign into Azure by clicking the `Sign in to Azure` under the `ACCOUNTS` section from sidebar.
   1. Click `Provision` from `LIFECYCLE` section or open the command palette and select: `Teams: Provision`.
-  1. Run command: `az login`.
+  1. Login Azure CLI with commands: `az login` and `az account set -s <subscription-id>`.
   1. Click `Deploy` or open the command palette and select: `Teams: Deploy`.
 - From TeamsFx CLI:
-  1. Run command: `teamsfx account login azure`.
-  1. Run command: `teamsfx provision --env dev`.
-  1. Run command: `az login`.
-  1. Run command: `teamsfx deploy --env dev`.
+  1. Run command: `teamsfx account login azure` .
+  1. Run command: `teamsfx provision --env dev` .
+  1. Run command: `az login` .
+  1. Run command: `teamsfx deploy --env dev` .
 
 ### Preview the app in Teams
 
