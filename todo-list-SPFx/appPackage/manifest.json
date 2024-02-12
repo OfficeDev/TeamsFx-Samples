@@ -23,10 +23,13 @@
         "color": "color.png"
     },
     "accentColor": "#004578",
-    "configurableTabs": [
+    "configurableTabs": [],
+    "staticTabs": [
         {
-            "configurationUrl": "https://{teamSiteDomain}{teamSitePath}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest={teamSitePath}/_layouts/15/teamshostedapp.aspx%3Fteams%26componentId=c314487b-f51c-474d-823e-a2c3ec82b1ff%26forceLocale={locale}",
-            "canUpdateConfiguration": true,
+            "entityId": "index",
+            "name": "My Tab",
+            "contentUrl": "https://{teamSiteDomain}{teamSitePath}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest={teamSitePath}/_layouts/15/teamshostedapp.aspx%3Fteams%26componentId=c314487b-f51c-474d-823e-a2c3ec82b1ff%26forceLocale={locale}",
+            "websiteUrl": "https://products.office.com/en-us/sharepoint/collaboration",
             "scopes": [
                 "team"
             ]

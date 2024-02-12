@@ -25,13 +25,16 @@
     "accentColor": "#FFFFFF",
     "bots": [],
     "composeExtensions": [],
-    "configurableTabs": [
+    "configurableTabs": [],
+    "staticTabs": [
         {
-            "configurationUrl": "${{TAB_ENDPOINT}}/index.html#/config",
-            "canUpdateConfiguration": true,
+            "entityId": "index0",
+            "name": "Todo List",
+            "contentUrl": "${{TAB_ENDPOINT}}/index.html#/tab",
+            "websiteUrl": "${{TAB_ENDPOINT}}/index.html#/tab",
             "scopes": [
                 "team",
-                "groupchat"
+                "groupChat"
             ]
         }
     ],

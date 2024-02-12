@@ -15,7 +15,6 @@ import { useTeamsUserCredential } from "@microsoft/teamsfx-react";
 import SampleDashboard from "./dashboards/SampleDashboard";
 import { TeamsFxContext } from "./internal/context";
 import Privacy from "./Privacy";
-import TabConfig from "./TabConfig";
 import TermsOfUse from "./TermsOfUse";
 
 /**
@@ -52,7 +51,6 @@ export default function App() {
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/termsofuse" element={<TermsOfUse />} />
               <Route path="/tab" element={<SampleDashboard />} />
-              <Route path="/config" element={<TabConfig />} />
               <Route path="*" element={<Navigate to={"/tab"} />} />
             </Routes>
           </Router>

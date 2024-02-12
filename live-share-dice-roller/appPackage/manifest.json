@@ -24,12 +24,14 @@
         "color": "color.png"
     },
     "accentColor": "#FFFFFF",
-    "configurableTabs": [
+    "configurableTabs": [],
+    "staticTabs": [
         {
-            "configurationUrl": "${{BOT_ENDPOINT}}/?view=config&inTeams=1&load=1",
-            "canUpdateConfiguration": false,
+            "entityId": "index0",
+            "name": "My Tab",
+            "contentUrl": "${{BOT_ENDPOINT}}/?view=config&inTeams=1&load=1",
             "scopes": [
-                "groupchat"
+                "groupChat"
             ],
             "context": [
                 "meetingChatTab",

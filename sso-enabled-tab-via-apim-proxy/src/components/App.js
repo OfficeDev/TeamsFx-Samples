@@ -9,7 +9,6 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Privacy from "./about/Privacy";
 import TermsOfUse from "./about/TermsOfUse";
 import Tab from "./Tab";
-import TabConfig from "./TabConfig";
 
 /**
  * The main app which handles the initialization and routing
@@ -24,7 +23,6 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/termsofuse" element={<TermsOfUse />} />
           <Route path="/tab" element={<Tab />} />
-          <Route path="/config" element={<TabConfig />} />
         </Routes>
       </Router>
     );
