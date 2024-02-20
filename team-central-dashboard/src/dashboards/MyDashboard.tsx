@@ -44,7 +44,11 @@ export default class MyDashboard extends BaseDashboard<any, any> {
   async componentDidMount() {
     super.componentDidMount();
     if (await this.checkIsConsentNeeded()) {
-      await loginAction(scope);
+      try {
+        await loginAction(scope);
+      } catch (e) {
+        console.log("Consent failed:", e);        
+      }
     }
     this.setState({ showLogin: false });
   }
