@@ -734,6 +734,28 @@
             "thumbnailPath": "assets/thumbnail.png",
             "gifPath": "assets/sampleDemo.gif",
             "suggested": false
+        },
+        {
+            "id": "bot-sso-docker",
+            "shortId": "bot-sso-docker",
+            "onboardDate": "2024-02-20",
+            "title": "Containerized Bot App with SSO Enabled",
+            "shortDescription": "Creating a Teams Bot with SSO and Microsoft Graph in a Docker Container.",
+            "fullDescription": "This is an containerized Microsoft Teams Bot app demonstrating how to integrate with Bot Framework SDK, TeamsFx SDK, and Graph SDK to implement SSO (Single Sign-On) feature that retrieves profile photos for currently signed-in users. It responds to a show message and leverages the Teams Toolkit to create a Teams bot app. The project also uses Microsoft Graph to fetch user info and pictures in the Teams app, and the TeamsFx SDK to implement SSO for the Teams bot. Docker is used for containerization.",
+            "types": [
+              "Bot"
+            ],
+            "tags": [
+              "Bot",
+              "TS",
+              "Docker",
+              "SSO"
+            ],
+            "time": "5 mins to run",
+            "configuration": "Ready for local debug",
+            "thumbnailPath": "assets/thumbnail.png",
+            "gifPath": "assets/sampleDemo.gif",
+            "suggested": false
         }
     ]
 }
