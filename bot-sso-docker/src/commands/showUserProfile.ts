@@ -49,10 +49,25 @@ export class ShowUserProfile implements SSOCommand {
 
       const buffer = Buffer.from(photoBinary);
       const imageUri = "data:image/png;base64," + buffer.toString("base64");
-      const card = CardFactory.thumbnailCard(
-        "User Picture",
-        CardFactory.images([imageUri])
-      );
+      const card = CardFactory.adaptiveCard({
+        type: "AdaptiveCard",
+        body: [
+          {
+            type: "TextBlock",
+            text: "User Picture:",
+            weight: "Bolder",
+            size: "Medium",
+          },
+          {
+            type: "Image",
+            url: imageUri,
+            size: "Large",
+            horizontalAlignment: "Left",
+          },
+        ],
+        $schema: "http://adaptivecards.io/schemas/adaptive-card.json",
+        version: "1.4",
+      });
       await context.sendActivity({ attachments: [card] });
     } else {
       await context.sendActivity(
