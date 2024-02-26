@@ -85,23 +85,13 @@ deploy:
   - uses: script
     name: set environment variables
     with:
-      run: echo "::set-teamsfx-env CONTAINER_IMAGE=sso-bot"
-
-  - uses: script
-    name: set environment variables
-    with:
       run: echo "::set-teamsfx-env
-        AZURE_CONTAINER_IMAGE=${{AZURE_CONTAINER_REGISTRY_SERVER}}/${{CONTAINER_IMAGE}}"
+        AZURE_CONTAINER_IMAGE=${{AZURE_CONTAINER_REGISTRY_SERVER}}/sso-bot"
 
   - uses: script
     name: build container image
     with:
-      run: docker build -t ${{CONTAINER_IMAGE}} .
-
-  - uses: script
-    name: tag container image
-    with:
-      run: docker tag ${{CONTAINER_IMAGE}} ${{AZURE_CONTAINER_IMAGE}}
+      run: docker build -t ${{AZURE_CONTAINER_IMAGE}} .
 
   - uses: script
     name: login azure container registry
