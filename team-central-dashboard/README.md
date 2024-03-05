@@ -112,8 +112,9 @@ In mobile devices, the feature of open in Teams may not work.
 
 | Date         | Author     | Comments                               |
 | ------------ | ---------- | -------------------------------------- |
-| Feb 22, 2023 | Hui, Frank | onboard                                |
-| Mar 31, 2023 | Hui        | update to support Teams Toolkit V5.0.0 |
+| Feb 22, 2023 | Hui, Frank | Onboard                                |
+| Mar 31, 2023 | Hui        | Update to support Teams Toolkit V5.0.0 |
+| Feb 27, 2024 | Hui        | Upgrade Azure Function V4              |
 
 ## Feedback
 

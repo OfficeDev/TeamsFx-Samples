@@ -13,6 +13,7 @@ import {
 import { BaseWidget, IWidgetClassNames } from "@microsoft/teamsfx-react";
 
 import { getImageByTheme } from "../components/ThemeImg";
+import config from "../lib/config";
 import { githubIssuesModel } from "../models/githubIssuesModel";
 import { createIssue, getIssues } from "../services/githubService";
 
@@ -103,7 +104,7 @@ export class GithubIssues extends BaseWidget<any, IIssueState> {
           size="small"
           onClick={() =>
             window.open(
-              `https://github.com/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues`,
+              `https://github.com/${config.githubRepoOwner}/${config.githubRepoName}/issues`,
               "_blank"
             )
           }

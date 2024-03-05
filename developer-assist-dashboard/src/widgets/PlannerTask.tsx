@@ -22,6 +22,7 @@ import {
 import { BaseWidget, IWidgetClassNames } from "@microsoft/teamsfx-react";
 
 import { getImageByTheme } from "../components/ThemeImg";
+import config from "../lib/config";
 import { TaskAssignedToModel, TaskModel } from "../models/plannerTaskModel";
 import { addTask, getTasks } from "../services/plannerService";
 
@@ -120,7 +121,7 @@ export class PlannerTask extends BaseWidget<any, ITaskState> {
           size="small"
           onClick={() =>
             window.open(
-              `https://tasks.office.com/5b37c6.onmicrosoft.com/Home/Planner/#/plantaskboard?groupId=${process.env.PLANNER_GROUP_ID}&planId=${process.env.PLANNER_PLAN_ID}`,
+              `https://tasks.office.com/5b37c6.onmicrosoft.com/Home/Planner/#/plantaskboard?groupId=${config.plannerGroupId}&planId=${config.plannerPlanId}`,
               "_blank"
             )
           } // navigate to detailed page

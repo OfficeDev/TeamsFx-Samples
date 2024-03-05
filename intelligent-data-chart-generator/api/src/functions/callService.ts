@@ -3,23 +3,12 @@
  * developer guide.
  */
 
-import { Context, HttpRequest } from "@azure/functions";
-import {
-  ApiKeyLocation,
-  ApiKeyProvider,
-  AxiosInstance,
-  createApiClient,
-} from "@microsoft/teamsfx";
+import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import { ApiKeyLocation, ApiKeyProvider, AxiosInstance, createApiClient } from "@microsoft/teamsfx";
 
 import config from "../config";
 import sqlExample from "../example/sqlExample.json";
 import sqlPrompt from "../prompt/sqlPrompt";
-
-// Define a Response interface with a status number and a body object that can contain any key-value pairs.
-interface Response {
-  status: number;
-  body: { [key: string]: any };
-}
 
 // Define an Example interface with a content string and a role string.
 interface Example {
@@ -31,47 +20,45 @@ interface Example {
  * This function is the entry point for the Azure Function.
  * It handles HTTP requests from the Teams client and calls the appropriate function based on the request parameters.
  *
- * @param {Context} context - The Azure Functions context object.
  * @param {HttpRequest} req - The HTTP request.
- * @returns {Promise<Response>} - A promise that resolves with the HTTP response.
+ * @param {InvocationContext} context - The Azure Functions context object.
+ * @returns {Promise<HttpResponseInit>} - A promise that resolves with the HTTP response.
  */
-export default async function run(
-  context: Context,
-  req: HttpRequest
-): Promise<Response> {
+export async function callService(
+  req: HttpRequest,
+  context: InvocationContext
+): Promise<HttpResponseInit> {
   // Initialize response.
-  const res: Response = {
+  const res: HttpResponseInit = {
     status: 200,
-    body: {},
+    jsonBody: {},
   };
+  
+  // Get request data from the HTTP request.
+  const reqData = await req.json();
 
   // Put an echo into response body.
-  res.body.receivedHTTPRequestBody = req.body || "";
+  res.jsonBody.receivedHTTPRequestBody = reqData || "";
 
   // Prepare access token.
-  const accessToken: string = req.get("Authorization")
-    ?.replace("Bearer ", "")
-    .trim();
+  const accessToken: string = req.headers.get("Authorization")?.replace("Bearer ", "").trim();
   if (!accessToken) {
     return {
       status: 400,
-      body: {
+      jsonBody: {
         error: "No access token was found in request header.",
       },
     };
   }
 
-  // Get request data from the HTTP request.
-  const reqData = req.body;
-
   try {
     const result = await handleRequest(reqData);
-    res.body = { ...res.body, ...result };
+    res.jsonBody = { ...res.jsonBody, ...result };
   } catch (e) {
-    context.log.error(e);
+    context.error(e);
     return {
       status: 500,
-      body: {
+      jsonBody: {
         error: "Failed to process request.",
       },
     };
@@ -104,9 +91,7 @@ async function handleRequest(reqData: any): Promise<any> {
  * @returns A list of autocompletion suggestions.
  */
 async function sqlCompletion(body: string): Promise<string> {
-  const completionResp = await callOpenAI(
-    constructRquest(body, sqlPrompt, sqlExample)
-  );
+  const completionResp = await callOpenAI(constructRquest(body, sqlPrompt, sqlExample));
   return completionResp.message.content;
 }
 
@@ -159,11 +144,7 @@ function getExample(exampleData: any[]): Example[] {
  * @returns The response object from the OpenAI API.
  */
 async function callOpenAI(request: any) {
-  const authProvider = new ApiKeyProvider(
-    "api-key",
-    config.openAIApiKey,
-    ApiKeyLocation.Header
-  );
+  const authProvider = new ApiKeyProvider("api-key", config.openAIApiKey, ApiKeyLocation.Header);
   const apiClient: AxiosInstance = createApiClient(
     `${config.openAIEndpoint}openai/deployments/${config.openAIDeploymentName}`,
     authProvider
@@ -204,3 +185,9 @@ async function queryDB(sqlStr: string): Promise<any> {
     poolConnection.close();
   }
 }
+
+app.http("callService", {
+  methods: ["GET", "POST"],
+  authLevel: "anonymous",
+  handler: callService,
+});

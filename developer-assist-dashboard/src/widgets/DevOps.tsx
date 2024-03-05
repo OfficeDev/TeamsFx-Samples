@@ -1,7 +1,13 @@
 import "../styles/DevOps.css";
 import "../styles/Common.css";
 
-import { Avatar, Button, Image, Spinner, Text } from "@fluentui/react-components";
+import {
+  Avatar,
+  Button,
+  Image,
+  Spinner,
+  Text,
+} from "@fluentui/react-components";
 import {
   ArrowRight16Filled,
   CircleSmall20Filled,
@@ -10,6 +16,7 @@ import {
 import { BaseWidget, IWidgetClassNames } from "@microsoft/teamsfx-react";
 
 import { getImageByTheme } from "../components/ThemeImg";
+import config from "../lib/config";
 import { DevOpsModel } from "../models/devOpsModel";
 import { DevOpsWorkItems } from "../services/devopsService";
 
@@ -108,7 +115,7 @@ export class DevOps extends BaseWidget<any, IWorkItemState> {
           size="small"
           onClick={() =>
             window.open(
-              `https://dev.azure.com/${process.env.DEVOPS_ORGANIZATION_NAME}/${process.env.DEVOPS_PROJECT_NAME}/_workitems/recentlyupdated/`,
+              `https://dev.azure.com/${config.devopsOrgName}/${config.devopsProjectName}/_workitems/recentlyupdated/`,
               "_blank"
             )
           }
