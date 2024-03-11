@@ -80,7 +80,7 @@
         {
             "label": "Start application",
             "type": "shell",
-            "command": "yarn dev:teamsfx",
+            "command": "npm run dev:teamsfx",
             "isBackground": true,
             "options": {
                 "cwd": "${workspaceFolder}"

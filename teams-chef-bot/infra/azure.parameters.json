@@ -11,9 +11,6 @@
       "botAadAppClientSecret": {
         "value": "${{SECRET_BOT_PASSWORD}}"
       },
-      "openaiApiKey":{
-        "value": "${{SECRET_OPENAI_API_KEY}}"
-      },
       "webAppSKU": {
         "value": "B1"
       },

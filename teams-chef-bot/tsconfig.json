@@ -7,8 +7,9 @@
         "outDir": "./lib",
         "rootDir": "./src",
         "sourceMap": true,
-        "strict": false,
+        "strict": true,
         "target": "es2017",
-        "tsBuildInfoFile": "./lib/.tsbuildinfo"
+        "tsBuildInfoFile": "./lib/.tsbuildinfo",
+        "esModuleInterop": true
     }
 }

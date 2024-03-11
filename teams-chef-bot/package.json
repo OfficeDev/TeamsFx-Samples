@@ -20,21 +20,21 @@
         "url": "https://github.com"
     },
     "dependencies": {
-        "@microsoft/teamsfx": "^2.2.0",
-        "botbuilder": "^4.19.0",
-        "@microsoft/teams-ai": "~0.1.0-preview.2",
-        "dotenv": "^8.2.0",
+        "@microsoft/teams-ai": "~1.1.1",
+        "@microsoft/teamsfx": "^2.3.0",
+        "botbuilder": "^4.22.1",
+        "dotenv": "^16.4.5",
         "replace": "~1.2.0",
-        "restify": "^10.0.0"
+        "restify": "~11.1.0",
+        "vectra": "^0.5.5"
     },
     "devDependencies": {
         "@types/dotenv": "6.1.1",
-        "@types/restify": "8.5.5",
-        "@types/node": "^14.0.0",
-        "ts-node": "^10.4.0",
+        "@types/restify": "8.5.12",
+        "@types/node": "^20.11.24",
+        "ts-node": "^10.9.2",
         "env-cmd": "^10.1.0",
-        "nodemon": "^2.0.7",
-        "tslint": "~5.20.0",
-        "typescript": "^4.6.4"
+        "nodemon": "~1.19.4",
+        "typescript": "^5.3.3"
     }
 }
