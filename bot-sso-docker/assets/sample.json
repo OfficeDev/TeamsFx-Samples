@@ -1,0 +1,65 @@
+[
+  {
+    "name": "officedev-teamsfx-samples-bot-sso-docker",
+    "source": "officeDev",
+    "title": "Containerized Bot App with SSO Enabled",
+    "shortDescription": "A containerized Microsoft Teams Bot app with SSO",
+    "url": "https://github.com/OfficeDev/TeamsFx-Samples/tree/dev/bot-sso-docker",
+    "longDescription": [
+      "This is an containerized Microsoft Teams Bot app demonstrating how to integrate with Bot Framework SDK, TeamsFx SDK, and Graph SDK to implement SSO (Single Sign-On) feature that retrieves profile photos for currently signed-in users."
+    ],
+    "creationDateTime": "2024-01-17",
+    "updateDateTime": "2024-01-17",
+    "products": [
+      "Teams",
+      "TeamsToolkit"
+    ],
+    "metadata": [
+      {
+        "key": "TEAMS-SAMPLE-SOURCE",
+        "value": "OfficeDev"
+      },
+      {
+        "key": "TEAMS-SERVER-LANGUAGE",
+        "value": "typescript"
+      },
+      {
+        "key": "TEAMS-FEATURES",
+        "value": "bot"
+      }
+    ],
+    "thumbnails": [
+      {
+        "type": "image",
+        "order": 100,
+        "url": "https://raw.githubusercontent.com/OfficeDev/TeamsFx-Samples/dev/bot-sso-docker/assets/thumbnail.png",
+        "alt": "Bot App with SSO Enabled in Docker"
+      }
+    ],
+    "authors": [
+      {
+        "gitHubAccount": "hund030",
+        "pictureUrl": "https://avatars.githubusercontent.com/u/26134943?v=4",
+        "name": "hund030"
+      }
+    ],
+    "references": [  
+    {
+        "name": "Teams developer documentation",
+        "url": "https://aka.ms/TeamsPlatformDocs"
+      },
+      {
+        "name": "Teams developer questions",
+        "url": "https://aka.ms/TeamsPlatformFeedback"
+      },
+      {
+        "name": "Teams development videos from Microsoft",
+        "url": "https://aka.ms/sample-ref-teams-vids-from-microsoft"
+      },
+      {
+        "name": "Teams development videos from the community",
+        "url": "https://aka.ms/sample-ref-teams-vids-from-community"
+      }
+    ]
+  }
+]

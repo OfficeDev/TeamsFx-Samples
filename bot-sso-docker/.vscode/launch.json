@@ -1,0 +1,86 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Remote (Edge)",
+      "type": "msedge",
+      "request": "launch",
+      "url": "https://teams.microsoft.com/l/app/${{TEAMS_APP_ID}}?installAppPackage=true&webjoin=true&${account-hint}",
+      "presentation": {
+        "group": "remote",
+        "order": 1
+      },
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Launch Remote (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://teams.microsoft.com/l/app/${{TEAMS_APP_ID}}?installAppPackage=true&webjoin=true&${account-hint}",
+      "presentation": {
+        "group": "remote",
+        "order": 2
+      },
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Launch App (Edge)",
+      "type": "msedge",
+      "request": "launch",
+      "url": "https://teams.microsoft.com/l/app/${{local:TEAMS_APP_ID}}?installAppPackage=true&webjoin=true&${account-hint}",
+      "cascadeTerminateToConfigurations": ["Docker Node.js Launch"],
+      "presentation": {
+        "group": "all",
+        "hidden": true
+      },
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Launch App (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://teams.microsoft.com/l/app/${{local:TEAMS_APP_ID}}?installAppPackage=true&webjoin=true&${account-hint}",
+      "cascadeTerminateToConfigurations": ["Attach to Local Service"],
+      "presentation": {
+        "group": "all",
+        "hidden": true
+      },
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Docker Node.js Launch",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "docker-run: debug",
+      "platform": "node",
+      "node": {
+        "port": 9239,
+        "address": "localhost",
+        "localRoot": "${workspaceFolder}",
+        "remoteRoot": "/usr/src/app"
+      },
+      "removeContainerAfterDebug": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug in Docker (Edge)",
+      "configurations": ["Launch App (Edge)", "Docker Node.js Launch"],
+      "preLaunchTask": "Start application in Docker",
+      "presentation": {
+        "group": "all",
+        "order": 2
+      }
+    },
+    {
+      "name": "Debug in Docker (Chrome)",
+      "configurations": ["Launch App (Chrome)", "Docker Node.js Launch"],
+      "preLaunchTask": "Start application in Docker",
+      "presentation": {
+        "group": "all",
+        "order": 2
+      },
+      "stopAll": true
+    }
+  ]
+}
