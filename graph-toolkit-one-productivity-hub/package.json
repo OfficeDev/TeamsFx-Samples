@@ -15,7 +15,6 @@
     "@microsoft/teams-js": "^2.7.1",
     "@microsoft/teamsfx": "^2.2.0",
     "@microsoft/teamsfx-react": "^3.0.0",
-    "axios": "^0.21.1",
     "nth-check": "^2.0.1",
     "react": "^18.2.0",
     "react-csv": "^2.2.2",
