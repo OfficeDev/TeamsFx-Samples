@@ -3,6 +3,9 @@
 # Visit https://aka.ms/teamsfx-actions for details on actions
 version: 1.0.0
 
+additionalMetadata:
+  sampleTag: TeamsFx-Samples:teams-chef-bot
+
 environmentFolderPath: ./env
 
 # Triggered when 'teamsapp provision' is executed
