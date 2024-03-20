@@ -23,10 +23,11 @@
 assets
 appPackage
 build
+deploy
 env
-images
 infra
 aad.manifest.json
+cli.md
 teamsapp*.yaml
 LICENSE
 README.md

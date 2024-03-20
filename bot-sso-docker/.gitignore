@@ -15,3 +15,5 @@ node_modules/
 # build
 lib/
 build/
+
+deploy/env

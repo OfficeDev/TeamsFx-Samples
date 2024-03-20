@@ -89,6 +89,64 @@ This sample demonstrate how to containerize a Teams App and integrate the Docker
 - From TeamsFx CLI:
   1. Run command: `teamsfx preview --env dev`.
 
+## Deploying on Azure Kubernetes Service
+
+You can deploy a containerized Teams App on a Kubernetes cluster. This assumes that you have an existing Azure Kubernetes Service connected to your Azure Container Registry, which hosts your container images. If you do not have one, please refer to this tutorial to create one: [AKS Tutorials](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-cli).
+
+The following steps are provided as an example:
+
+1. Install ingress controller and certificates manager for setting up TLS. Refer to [Create an ingress controller](https://learn.microsoft.com/azure/aks/ingress-basic?tabs=azure-cli) and [Use TLS with Let's Encrypt certificates](https://learn.microsoft.com/azure/aks/ingress-tls?tabs=azure-cli#use-tls-with-lets-encrypt-certificates).
+    ```
+    NAMESPACE=ingress-basic
+
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+    helm repo update
+    helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace $NAMESPACE \
+        --set controller.nodeSelector."kubernetes\.io/os"=linux  \
+        --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux  \
+        --set controller.healthStatus=true \
+        --set controller.service.externalTrafficPolicy=Local \
+        --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz 
+
+    helm repo add jetstack https://charts.jetstack.io
+    helm repo update
+    helm install cert-manager jetstack/cert-manager --namespace $NAMESPACE --set installCRDs=true --set nodeSelector."kubernetes\.io/os"=linux
+    ```
+1. Update the DNS for the ingress public IP.
+    ```
+    > kubectl get services --namespace $NAMESPACE -w ingress-nginx-controller
+
+    NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S)
+    ingress-nginx-controller LoadBalancer $CLUSTER_IP $EXTERNAL_IP 80:32514/TCP,443:32226/TCP
+
+    > PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$EXTERNAL_IP')].[id]" --output tsv)
+    > az network public-ip update --ids $PUBLICIPID --dns-name $DNSLABEL
+    > az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
+
+    $DNSLABEL.$REGION.cloudapp.azure.com
+    ```
+1. Fill the BOT_DOMAIN value in [.env.${envName}](./env/.env.dev) with your FQDN. Update the `arm/deploy` action as the following in [teamsapp.yml](./teamsapp.yml) since you do not need other Azure resources, and run `provision` command of Teams Toolkit to create a Teams app and a bot registration.
+    ```
+    - uses: arm/deploy 
+      with:
+        subscriptionId: ${{AZURE_SUBSCRIPTION_ID}} 
+        resourceGroupName: ${{AZURE_RESOURCE_GROUP_NAME}} 
+        templates:
+          - path: ./infra/botRegistration/azurebot.bicep
+            parameters: ./infra/botRegistration/azurebot.parameters.json
+            deploymentName: Create-resources-for-bot
+        bicepCliVersion: v0.9.1
+    ```
+1. Create a secret that serves as environment variables with the following command. Make sure to fill in the values in [.env.dev-secrets](./deploy/env/.env.dev-secrets) beforehand. You can find the values in [.env.${envName}](./env/.env.dev) and [.env.${envName}.user](./env/.env.dev.user) after provisioning.
+    ```
+    kubectl create secret generic dev-secrets --from-env-file ./deploy/env/.env.dev-secrets -n $NAMESPACE
+    ```
+1. Update the hostname and your email in the [sso-bot.yaml](./deploy/sso-bot.yaml) and apply it.
+    ```
+    kubectl apply -f deploy/sso-bot.yaml -n $NAMESPACE
+    ```
+1. In VS Code `Run and Debug` panel, select the `Launch Remote` configuration and press F5 to preview the Teams bot application that deployed on AKS.
+
 ## Further reading
 
 - [How Microsoft Teams bots work](https://docs.microsoft.com/azure/bot-service/bot-builder-basics-teams?view=azure-bot-service-4.0&tabs=javascript)
@@ -98,7 +156,7 @@ This sample demonstrate how to containerize a Teams App and integrate the Docker
 
 | Date         | Author     | Comments                               |
 | ------------ | ---------- | -------------------------------------- |
-| Jan 17, 2024  | hund030    | Onboard sample in Teams Toolkit V5.0.0 |
+| Jan 17, 2024  | hund030   | Onboard sample in Teams Toolkit V5.0.0 |
 
 ## Feedback
 
