@@ -34,37 +34,33 @@ The sample uses a local Vector Database, called [Vectra](https://github.com/Stev
 
 ## Setting up the sample
 
-1. Clone the repository
+1. In the root folder, install and build all dependencies
 
     ```bash
-    git clone https://github.com/Microsoft/teams-ai.git
+    cd teams-chef-bot
+    npm install -f
+    npm run build
     ```
 
-2. In the root JavaScript folder, install and build all dependencies
-
-    ```bash
-    cd teams-ai/js
-    yarn install
-    yarn build
-    ```
-
-3. In a terminal, navigate to the sample root.
+2. In a terminal, navigate to the sample root.
 
     ```bash
     cd teams-ai/js/samples/04.ai.a.teamsChefBot/
     ```
-4. Duplicate the `sample.env` in the `teams-ai/js/samples/04.ai.a.teamsChefBot` folder. Rename the file to `.env`. 
+3. Duplicate the `sample.env` in the `teams-ai/js/samples/04.ai.a.teamsChefBot` folder. Rename the file to `.env`. 
 
-5. If you are using OpenAI then only keep the `OPENAI_KEY` and add in your key. Otherwise if you are using AzureOpenAI then only keep the `AZURE_OPENAI_KEY`, `AZURE_OPENAI_ENDPOINT` variables and fill them in appropriately.
+4. If you are using OpenAI then only keep the `OPENAI_KEY` and add in your key. Otherwise if you are using AzureOpenAI then only keep the `AZURE_OPENAI_KEY`, `AZURE_OPENAI_ENDPOINT` variables and fill them in appropriately.
 
-6. Update `config.json` and `index.ts` with your model deployment name.
+> Please note: If you are use Azure OpenAI, you will need both a GPT model and embedding model deployment to get this sample working. See `OpenAIModel` in `index.ts` and `OpenAIEmbeddings` in `VectraDataSource.ts`. If these are using different endpoints and/or keys, be sure to update your `.env` file and Teams Toolkit files (if applicable) accordingly.
+
+5. Update `config.json` and `index.ts` with your model deployment name.
 
 ## Testing the sample
 
 The easiest and fastest way to get up and running is with Teams Toolkit as your development guide. To use Teams Toolkit to automate setup and debugging, please [continue below](#using-teams-toolkit-for-visual-studio-code).
 
-Otherwise, if you only want to run the bot locally and build manually, please jump to the [BotFramework Emulator](../README.md#testing-in-botframework-emulator) section.
-For different ways to test a sample see: [Multiple ways to test](../README.md#multiple-ways-to-test)
+Otherwise, if you only want to run the bot locally and build manually, please jump to the [BotFramework Emulator](https://github.com/microsoft/teams-ai/blob/main/js/samples/README.md#testing-in-botframework-emulator) section.
+For different ways to test a sample see: [Multiple ways to test](https://github.com/microsoft/teams-ai/blob/main/js/samples/README.md#multiple-ways-to-test-a-sample)
 
 ### Using Teams Toolkit for Visual Studio Code 
 
